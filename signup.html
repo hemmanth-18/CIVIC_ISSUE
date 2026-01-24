@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="neon-bg">
+    <div class="neon one"></div><div class="neon two"></div><div class="neon three"></div>
+    <div class="neon four"></div><div class="neon five"></div><div class="neon six"></div>
+    <div class="neon seven"></div><div class="neon eight"></div><div class="neon nine"></div>
+    <div class="neon ten"></div>
+</div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-container">
+    {% for category, message in messages %}
+    <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<div class="container">
+    <div class="left">
+        <div class="left-content">
+            <h1>Civic Issue Reporting System</h1>
+            <p>Report and track civic issues easily.</p>
+        </div>
+    </div>
+
+    <div class="right">
+        <h2>Create Account</h2>
+        <form method="POST" action="/register">
+            <input name="name" placeholder="Name" required>
+            <input name="email" type="email" placeholder="Email" required>
+            <input name="password" type="password" placeholder="Password" required>
+            <button>Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
+</div>
+
+</body>
+</html>
