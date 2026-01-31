@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CIVIC+</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+<nav class="navbar">
+    <!-- LEFT -->
+    <div class="nav-left">
+        <div class="logo">CIVIC+</div>
+    </div>
+
+    <!-- CENTER -->
+    <div class="nav-center">
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/add_complaint">Add Complaint</a></li>
+            <li><a href="/complaints">View Complaints</a></li>
+        </ul>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="nav-right">
+    {% if session.get('user') %}
+        <a href="/logout" class="login-link">Logout</a>
+        <div class="profile-icon">
+            <a href="/profile">
+                <img src="/static/img/avatar.png">
+            </a>
+        </div>
+    {% else %}
+        <a href="/login" class="login-link">Login</a>
+    {% endif %}
+</div>
+
+
+    </div>
+</nav>
+
+
+
+
+<!-- FLASH MESSAGES -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-container">
+    {% for category, msg in messages %}
+        <div class="flash {{ category }}">{{ msg }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Smart Civic Issue Reporting</h1>
+    <p>Report • Track • Resolve city problems easily</p>
+
+    <button class="raise-btn">Raise Complaint</button>
+</section>
+
+<!-- 🔥 CAROUSEL (ADDED) -->
+<section class="carousel">
+    <div class="slide fade">
+        <img src="/static/img/road.jpg">
+        <div class="caption">Report Road Damages</div>
+    </div>
+
+    <div class="slide fade">
+        <img src="/static/img/garbage.jpg">
+        <div class="caption">Garbage & Cleanliness Issues</div>
+    </div>
+
+    <div class="slide fade">
+        <img src="/static/img/streetlight.jpg">
+        <div class="caption">Street Light Problems</div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="box">
+        <h3>📍 Location Based</h3>
+        <p>Accurate GPS-based complaint mapping</p>
+    </div>
+    <div class="box">
+        <h3>⚡ Smart Priority</h3>
+        <p>AI-based severity detection</p>
+    </div>
+    <div class="box">
+        <h3>📊 Live Status</h3>
+        <p>Track complaint progress</p>
+    </div>
+</section>
+<footer class="footer">
+    <p>© 2026 Civic Issue Reporting System</p>
+    <p class="footer-sub">
+        Built for smart cities • Report • Track • Resolve
+    </p>
+</footer>
+
+
+<!-- CAROUSEL SCRIPT -->
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let slides = document.getElementsByClassName("slide");
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 3000);
+}
+</script>
+
+</body>
+</html>
