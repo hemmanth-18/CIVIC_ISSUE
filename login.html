@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
@@ -33,15 +33,32 @@
 
     <div class="right">
         <h2>Login</h2>
-        <form method="POST" action="/login_check">
-            <input name="email" type="email" placeholder="Email" required>
-            <input name="password" type="password" placeholder="Password" required>
+
+        <form method="POST" action="/login_check" autocomplete="off">
+            <input name="email" type="email" placeholder="Email" autocomplete="off" required>
+
+            <!-- PASSWORD WITH EYE -->
+            <div class="password-box">
+    <input id="password" name="password" type="password"
+           placeholder="Password" autocomplete="new-password" required>
+    <span class="eye" onclick="togglePassword()">&#128065;</span>
+</div>
+
+
             <button>Login</button>
         </form>
-        <p>Don’t have an account? <a href="/">Sign Up</a></p>
+
+        <p>Don’t have an account? <a href="/signup">Sign Up</a></p>
     </div>
 </div>
 
+<script>
+function togglePassword() {
+    const input = document.getElementById("password");
+    input.type = input.type === "password" ? "text" : "password";
+}
+</script>
+
+
 </body>
 </html>
-
