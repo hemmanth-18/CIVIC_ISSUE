@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(120deg, #f0f4f2, #e6eeea);
+    overflow: hidden;
+}
+
+/* =======================
+   NEON BACKGROUND
+======================= */
+.neon-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;   /* 🔥 FIX: allows clicking inputs */
+}
+
+.neon-bg .neon {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(31, 77, 43, 0.25);
+    filter: blur(120px);
+}
+
+.one { top: 10%; left: 10%; }
+.two { top: 30%; left: 70%; }
+.three { top: 60%; left: 40%; }
+.four { top: 80%; left: 20%; }
+.five { top: 20%; left: 50%; }
+.six { top: 70%; left: 80%; }
+
+/* =======================
+   CONTAINER (FORM)
+======================= */
+.container {
+    position: relative;   /* 🔥 FIX */
+    z-index: 2;           /* 🔥 FIX */
+    width: 900px;
+    height: 520px;
+    background: white;
+    margin: auto;
+    margin-top: 80px;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+/* =======================
+   LEFT PANEL
+======================= */
+.left {
+    width: 50%;
+    background: linear-gradient(135deg, #1f4d2b, #3b2f2f);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-content {
+    text-align: center;
+    padding: 30px;
+}
+
+/* =======================
+   RIGHT PANEL
+======================= */
+.right {
+    width: 50%;
+    padding: 50px;
+}
+
+.right h2 {
+    color: #1f4d2b;
+    margin-bottom: 20px;
+}
+
+.right input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.right input:focus {
+    border-color: #1f4d2b;
+    box-shadow: 0 0 6px rgba(31,77,43,0.4);
+}
+
+.right button {
+    width: 100%;
+    padding: 12px;
+    background: #1f4d2b;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(31,77,43,0.6);
+    transition: 0.3s;
+}
+
+.right button:hover {
+    box-shadow: 0 0 30px rgba(31,77,43,0.9);
+}
+
+.right p {
+    margin-top: 15px;
+}
+
+.right a {
+    color: #1f4d2b;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* =======================
+   FLASH MESSAGES
+======================= */
+.flash-container {
+    position: relative;
+    z-index: 3;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.flash {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.flash.success {
+    background: #d4f8e8;
+    color: #1f4d2b;
+}
+
+.flash.error {
+    background: #ffd6d6;
+    color: #8b0000;
+}
+/* PASSWORD FIELD WITH EYE ICON */
+/* PASSWORD FIELD WITH EYE ICON */
+.password-box {
+    position: relative;
+}
+
+.password-box input {
+    width: 100%;
+    padding: 12px 45px 12px 12px; /* space for eye */
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.eye {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #1f4d2b;
+    user-select: none;
+    line-height: 1;
+}
